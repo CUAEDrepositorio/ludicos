@@ -1,25 +1,48 @@
 <!DOCTYPE html>
-<html>
-<head lang="es">
+<html lang="es-MX">
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async="" src="https://www.google-analytics.com/analytics.js"></script>
+  <script>(function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,"script","https://www.google-analytics.com/analytics.js","ga");
+  ga("create", "UA-158134453-1", {"cookieDomain":"auto"});
+  ga("set", "anonymizeIp", true);
+  ga('set', 'dimension1', "CUAED");
+  ga('set', 'dimension2', "RECURSOS EDUCATIVOS ABIERTOS" );
+  ga('set', 'dimension3', "RECURSOS EDUCATIVOS MULTIMEDIA" );
+  ga('set', 'dimension4', "2019" );
+  ga('set', 'dimension5', "LÚDICO" );
+  ga('set', 'dimension6', "RL02-19" );
+  ga('set', 'dimension7', "MEMORAMA" );
+  ga('set', 'dimension8', "VERSIÓN 1" );
+  ga("set", "metric1", 1);ga("set", "metric2", 2);ga("set", "metric3", 3);ga("set", "metric4", 4); ga("set", "metric5", 5);ga("set", "metric6", 6);ga("set", "metric7", 7);ga("set", "metric8", 8);
+  ga("send", "pageview");
+  </script>
     <meta charset="UTF-8">
     <title>Juego de memoria</title>
     <meta name="author" content="Adib Abud Jaso">
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="css/estilos.css" />
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script> -->
+    <script src="https://lib.cuaed.unam.mx/R019/js/jquery-v3.2.1.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     <script type="text/javascript" src="js/listaReactivos.js"></script>
     <script type="text/javascript" src="js/configRecurso.js"></script>
+    <script type="text/javascript" src="js/tempo.js"></script>
     <script type="text/javascript" src="./SCORM/conectividadSCORM.js"></script>
-	<script type="text/javascript" src="./SCORM/conectividadSCORM.js"></script>
-	<script type="text/javascript" src="./SCORM/barraDeInfo.js"></script>
-
-
+       <script type="text/javascript" src="./SCORM/barraDeInfo.js"></script>
+     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+     <link rel="stylesheet" href="https://lib.cuaed.unam.mx/R019/css/bootstrap-v3.3.6.min.css">
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+         integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <script src="js/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/sweetalert.css" />
+    <link rel="stylesheet" type="text/css" href="./SCORM/estilosBarra.css" />
+
+
 
     <script type="text/javascript">
-//<![CDATA[
-var html5_audiotypes={ 
+
+var html5_audiotypes={
 "mp3": "audio/mpeg",
 "mp4": "audio/mp4",
 "ogg": "audio/ogg",
@@ -32,8 +55,8 @@ function escucharadui(){
 
 }
 function voltear(){
-       
-            
+
+
 }
 
 function imagen (){
@@ -104,12 +127,12 @@ function sonido (audiopro,dato){
     console.log(variable);
 
     if (window.global < 2){
- 
+
          if (window.elemnto.includes(dato)){
             variable.play();
 
          }else{
-            window.elemnto.push(dato);  
+            window.elemnto.push(dato);
             window.global=window.global+1;
             variable.play();
             console.log(global);
@@ -134,17 +157,13 @@ console.log("TAMANO"+window.domino.length)
 if(window.domino.length==2){
     auxmaster=window.domino[0];
     auxmaster.pause();
- 
-  
 }
-
     if (window.global < 2){
- 
+
  if (window.elemnto.includes(dato)){
     variable.play();
-
     }else{
-        window.elemnto.push(dato);  
+        window.elemnto.push(dato);
         window.global=window.global+1;
         variable.play();
          console.log(global);
@@ -163,12 +182,19 @@ if(window.domino.length==2){
 
 
 
-</script>   
+</script>
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">   
+
 </head>
 <body>
+  <noscript><br/>Necesitas tener habilitado Javascript para <br/>poder hacer uso de la funcionalidad completa</noscript>
+    <div id="prohibido">
+        <div id="NoMovil" class="ocultar">
+            <i class="fas fa-ban fa-10x"></i>
+            <br/>NO DISPONIBLE EN MOVIL
+        </div>
+    </div>
 <audio id="click1"><source src="audios/audio20_i1u2t10.mp3" type="audio/mp3"></audio>
 
 
@@ -184,83 +210,43 @@ if(window.domino.length==2){
 
         </div>
     </div>
-</div> 
+</div>
 
     <!-- <h1 class="headings actividad">Tipo de actividad</h1> -->
     <i class="icon-horizontal-icon icono"></i>
-    <h2 class="headings-int">Título de la actividad</h2><br />
-	<p>Instrucciones (pedagógica y técnica) de la actividad</p>
-
+    <h2 class="headings-int under-li">Título de la actividad</h2><br />
+    <p>Instrucciones (pedagógica y técnica) de la actividad</p>
+    <span id="countdown">  </span>
+    <span id="mododebug"> -MODO DEBUG ACTIVADO -</span>
 <div id="bloqueCartas" class="row bonito">
     <div id="Parte1" >
-<!--
-        <div class="contenedorCarta " data-respuesta="par3" onClick="sonido('audio1',5)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>
-        <div class="contenedorCarta " data-respuesta="par4" onClick="sonido('audio2',7)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><audio id="audio2" src="audios/audio7_i1u2t10.mp3" type="audio/mpeg" preload></audio><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>
-   
-     <div class="contenedorCarta "  data-respuesta="par1" onClick="video('vid1',1)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div> <video id="vid1"src="video/patol.mp4" width="80" height="100" ></video></div></div><div class="caraTapa cubridor parte1"></div></div></div>
-        <div class="contenedorCarta "  data-respuesta="par2" onClick="video('vid2',3)">       <div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><video id="vid2"src="video/gato.mp4" width="80" height="100" ></video></div></div><div class="caraTapa cubridor parte1"></div></div>   </div>
- 
-        <div class="contenedorCarta " data-respuesta="par5" onClick="sonido(click9,9)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>
-        <div class="contenedorCarta  " data-respuesta="par6" onClick="sonido(click11,11)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>
-        <div class="contenedorCarta " data-respuesta="par7" onClick="sonido(click13,13)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>
-        <div class="contenedorCarta " data-respuesta="par8" onClick="sonido(click15,15)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>
-    
-        <div class="contenedorCarta " data-respuesta="par9" onClick="sonido(click17,17)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>
-        <div class="contenedorCarta " data-respuesta="par10" onClick="sonido(click19,19)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>    
-        <div class="contenedorCarta " data-respuesta="par11" onClick="sonido(click21,21)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>
-        <div class="contenedorCarta " data-respuesta="par12" onClick="sonido(click23,23)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>
 
-    
-        <div class="contenedorCarta " data-respuesta="par13" onClick="sonido(click25,25)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>
-        <div class="contenedorCarta " data-respuesta="par14" onClick="sonido(click27,27)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>
-        <div class="contenedorCarta " data-respuesta="par15" onClick="sonido(click29,29)"><div class="cuadrito cerrado"><div class="caraRespuesta parte1"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte1"></div></div></div>
-    -->
     </div>
 
 
 
-    <div id="Parte2" >
-       <!-- 
-        <div class="contenedorCarta  " data-respuesta="par1" onClick="video('vid1u2',2)">   <div class="cuadrito cerrado">    <div class="caraRespuesta parte2"><div><video id="vid1u2"src="video/patol.mp4" width="80" height="100" ></video></div></div>   <div class="caraTapa cubridor parte2"></div>  </div></div>
-       
-        <div class="contenedorCarta  " data-respuesta="par2" onClick="video('vid2u2',4)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><video id="vid2u2"src="video/gato.mp4" width="80" height="100" ></video></div></div><div class="caraTapa cubridor parte2"></div></div></div>
-    <div class="contenedorCarta  " data-respuesta="par3" onClick="sonido(click6,6)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
-    
-        <div class="contenedorCarta " data-respuesta="par4" onClick="sonido(click8,8)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
-        <div class="contenedorCarta " data-respuesta="par5" onClick="sonido(click10,10)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
-        <div class="contenedorCarta " data-respuesta="par6" onClick="sonido(click12,12)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
-   
-        <div class="contenedorCarta " data-respuesta="par7" onClick="sonido(click14,14)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
-        <div class="contenedorCarta " data-respuesta="par8" onClick="sonido(click16,16)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
-        <div class="contenedorCarta " data-respuesta="par9" onClick="sonido(click18,18)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
-  
-        <div class="contenedorCarta " data-respuesta="par10" onClick="sonido(click20,20)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
-        <div class="contenedorCarta " data-respuesta="par11" onClick="sonido(click22,22)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
-        <div class="contenedorCarta " data-respuesta="par12" onClick="sonido(click24,24)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
-  
-        <div class="contenedorCarta " data-respuesta="par13" onClick="sonido(click26,26)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
-        <div class="contenedorCarta " data-respuesta="par14" onClick="sonido(click28,28)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
-        <div class="contenedorCarta " data-respuesta="par15" onClick="sonido(click30,30)"><div class="cuadrito cerrado"><div class="caraRespuesta parte2"><div><script> var texto= imagen(); </script></div></div><div class="caraTapa cubridor parte2"></div></div></div>
-    -->
+    <div id="Parte2" class="xd" >
+
     </div>
 
-     <div class="retroBien col-md-2 col-md-offset-5" id="retrocorrecta" style="display: none;">¡Buen trabajo!</div>
-    <div class="retroMal col-md-6 col-md-offset-3" id="retroincorrecta" style="display: none;">¡Vuelve a intentarlo!</div>
-   
+     <div class="retroBien col-md-2 col-md-offset-5" id="retrocorrecta" style="display: none;">¡Bien hecho!</div>
+     <div class="retroMal col-md-6 col-md-offset-3" id="retroincorrecta" style="display: none;">Intenta otra vez.</div>
+
     <div class="pager col-md-12 col-lg-12 col-sm-12 col-xs-12">
     <div class="barraInferior">
     <input type="button" id= "revisar" name="nombre1" class="btn btn-primary revisar "   ></button>
-    <input type="button" id= "revisarcont"  name="nombre1" class="btn btn-primary revisar "  style="display: none" ></button>   
-    <input type="button" id= "pasar"  name="nombre1" class="btn btn-primary revisar " style="display: none"  ></button> 
-    <input type="button" id= "botonCerrarRetroplus"  name="nombre1" class="btn btn-primary revisar "  style="display: none" ></button> 
-</div>   
-
-    
-    
+    <input type="button" id= "revisarcont"  name="nombre1" class="btn btn-primary revisar "  style="display: none" ></button>
+    <input type="button" id="pasar"  name="nombre1" class="btn btn-primary revisar " style="display: none"  ></input>
+    <input type="button" id= "botonCerrarRetroplus"  name="nombre1" class="btn btn-primary revisar "  style="display: none"  value="Actualizar" onclick="location.reload()"></button>
+    <input type="button" id= "btn-iniciar" name="nombre1" class="btn btn-primary revisar ">  </button>
 </div>
 
 
-   
+
+</div>
+
+
+
 
 
 </div>
